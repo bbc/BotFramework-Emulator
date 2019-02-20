@@ -49,6 +49,7 @@ import registerSessionRoutes from './session/registerRoutes';
 import registerUserTokenRoutes from './userToken/registerRoutes';
 import stripEmptyBearerToken from './utils/stripEmptyBearerToken';
 import registerEmulatorRoutes from './emulator/registerRoutes';
+import fetch from 'node-fetch';
 
 import Users from './facility/users';
 
@@ -92,8 +93,10 @@ export default class BotEmulator {
     this.options = { ...DEFAULT_OPTIONS, ...options };
 
     const logService = this.options.loggerOrLogService as LogService;
-    const logger: Logger = (logService && logService.logToChat) ? new LoggerAdapter(logService as LogService)
-      : (this.options.loggerOrLogService as Logger);
+    const logger: Logger =
+      logService && logService.logToChat
+        ? new LoggerAdapter(logService as LogService)
+        : (this.options.loggerOrLogService as Logger);
 
     this.facilities = {
       attachments: new Attachments(),
