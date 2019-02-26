@@ -1,6 +1,6 @@
 {
-  "name": "@bfemulator/emulator-core",
-  "version": "1.0.0-0",
+  "name": "@bbc/bfemulator-core",
+  "version": "4.2.1-0",
   "description": "Local mode server for Bot Framework",
   "files": [
     "lib/**/*.js"
